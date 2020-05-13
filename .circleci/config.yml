@@ -16,7 +16,9 @@ jobs:
         steps:
             - checkout
             # CircleCI に登録した秘密鍵を呼び出す
-            - add_ssh_keys: shrine
+            - add_ssh_keys:
+                fingerprints:
+                    - "e3:b8:14:73:13:e0:c7:bc:c8:68:c3:d2:3b:5e:9e:40"
             # CircleCI に登録した環境変数を使って SSH
             - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /usr/share/nginx/html/auto-deploy-test && git pull'
  
